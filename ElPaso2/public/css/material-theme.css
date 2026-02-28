@@ -1,0 +1,227 @@
+:root {
+  --md-primary: #1565c0;
+  --md-primary-light: #e9f1fb;
+  --md-accent: #00acc1;
+  --md-bg: #f3f6fb;
+  --md-surface: #ffffff;
+  --md-text: #1f2937;
+  --md-muted: #64748b;
+  --md-border: #dbe3ef;
+  --md-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --md-shadow-md: 0 6px 20px rgba(15, 23, 42, 0.12);
+}
+
+body,
+.content-wrapper,
+.main-footer,
+.main-header .navbar,
+.main-sidebar,
+.box,
+.small-box,
+.info-box {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+  color: var(--md-text);
+  font-size: 15px;
+  line-height: 1.5;
+  background: var(--md-bg);
+}
+
+.content-wrapper {
+  background: linear-gradient(180deg, #ffffff 0%, var(--md-bg) 100%) !important;
+}
+
+.content-header > h1 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #0f3f78;
+}
+
+.skin-blue .main-header .navbar {
+  background: linear-gradient(90deg, #1565c0 0%, #1e88e5 55%, #26a69a 100%);
+  border-bottom: 0;
+  box-shadow: var(--md-shadow-md);
+}
+
+.skin-blue .main-header .logo {
+  background: var(--md-primary);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.skin-blue .main-header .logo:hover,
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+  background: #0f57aa;
+  color: #ffffff;
+}
+
+.skin-blue .main-header .navbar .nav > li > a {
+  color: #ffffff;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle {
+  color: #ffffff;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.skin-blue .main-sidebar {
+  background: #ffffff;
+  border-right: 1px solid var(--md-border);
+  box-shadow: var(--md-shadow-sm);
+}
+
+.skin-blue .sidebar a {
+  color: #355b85;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 10px;
+  margin: 2px 10px;
+}
+
+.skin-blue .sidebar-menu > li > a {
+  border-left: 0;
+  padding: 12px 12px;
+}
+
+.skin-blue .sidebar-menu > li:hover > a,
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .treeview-menu > li > a:hover,
+.skin-blue .treeview-menu > li.active > a {
+  background: var(--md-primary-light);
+  color: var(--md-primary);
+}
+
+.skin-blue .treeview-menu {
+  background: transparent;
+}
+
+.skin-blue .treeview-menu > li > a {
+  padding: 10px 10px 10px 20px;
+}
+
+.box,
+.small-box,
+.info-box,
+.nav-tabs-custom,
+.callout,
+.modal-content {
+  border-radius: 14px !important;
+  border: 1px solid var(--md-border) !important;
+  box-shadow: var(--md-shadow-sm);
+  background: var(--md-surface);
+}
+
+.box-header {
+  border-bottom: 1px solid var(--md-border);
+  padding: 14px 16px;
+}
+
+.box-title {
+  font-weight: 600;
+  color: #114b89;
+}
+
+.box-body,
+.box-footer {
+  padding: 16px;
+}
+
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  border-width: 1px;
+}
+
+.btn-primary {
+  background: var(--md-primary);
+  border-color: var(--md-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #0f57aa;
+  border-color: #0f57aa;
+}
+
+.btn-success {
+  background: #2e7d32;
+  border-color: #2e7d32;
+}
+
+.btn-info {
+  background: var(--md-accent);
+  border-color: var(--md-accent);
+}
+
+.btn-danger {
+  background: #c62828;
+  border-color: #c62828;
+}
+
+.form-control,
+.select2-container--default .select2-selection--single,
+.input-group .input-group-addon {
+  border-radius: 10px !important;
+  border-color: #cfd8e3;
+  font-size: 15px;
+  min-height: 38px;
+}
+
+.form-control:focus {
+  border-color: var(--md-primary);
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.16);
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+.table > thead > tr > th {
+  background: #1565c0;
+  color: #ffffff;
+  border-bottom: 0 !important;
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f8fbff;
+}
+
+.table-hover > tbody > tr:hover {
+  background: #edf5ff;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover {
+  background: var(--md-primary);
+  border-color: var(--md-primary);
+}
+
+.main-footer {
+  background: #ffffff;
+  color: var(--md-muted);
+  border-top: 1px solid var(--md-border);
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .content-header > h1 {
+    font-size: 22px;
+  }
+
+  .skin-blue .sidebar a {
+    margin: 1px 6px;
+  }
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SIS | Login</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../public/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../public/css/_all-skins.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body.login-page {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fff8f0 0%, #fde8d0 50%, #fbd5b0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Círculos decorativos de fondo */
+    body.login-page::before,
+    body.login-page::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    body.login-page::before {
+      width: 520px; height: 520px;
+      top: -160px; left: -160px;
+      background: radial-gradient(circle, #f9c784 0%, transparent 70%);
+      opacity: .55;
+    }
+    body.login-page::after {
+      width: 440px; height: 440px;
+      bottom: -140px; right: -140px;
+      background: radial-gradient(circle, #f4845f 0%, transparent 70%);
+      opacity: .35;
+    }
+
+    /* ---- Tarjeta principal ---- */
+    .lp-card {
+      width: 100%;
+      max-width: 460px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(200,120,60,.18), 0 2px 8px rgba(0,0,0,.06);
+      overflow: hidden;
+      animation: slideUp .45s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- Cabecera de la tarjeta ---- */
+    .lp-header {
+      background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
+      border-bottom: 2px solid #fdd5a0;
+      padding: 36px 40px 28px;
+      text-align: center;
+    }
+    .lp-header img {
+      max-width: 210px;
+      height: auto;
+      /* sin filtro: la imagen se muestra con sus colores reales */
+    }
+    .lp-header h2 {
+      color: #c05c1a;
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-top: 14px;
+      text-transform: uppercase;
+    }
+    .lp-header p {
+      color: #a0724a;
+      font-size: 1.15rem;
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    /* ---- Cuerpo del formulario ---- */
+    .lp-body {
+      padding: 36px 40px 40px;
+    }
+
+    /* ---- Grupos de input ---- */
+    .lp-input-group {
+      position: relative;
+      margin-bottom: 22px;
+    }
+    .lp-input-group label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #b05a20;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 7px;
+    }
+    .lp-input-wrap {
+      position: relative;
+    }
+    .lp-input-wrap .lp-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #e07b39;
+      font-size: 22px;
+      pointer-events: none;
+    }
+    .lp-input-wrap input.form-control {
+      padding-left: 48px;
+      height: 54px;
+      border-radius: 10px;
+      border: 1.5px solid #f0d0b0;
+      font-size: 1.2rem;
+      color: #3a2010;
+      background: #fff9f4;
+      box-shadow: none;
+      transition: border-color .25s, box-shadow .25s, background .25s;
+    }
+    .lp-input-wrap input.form-control:focus {
+      background: #fff;
+      border-color: #e07b39;
+      box-shadow: 0 0 0 3px rgba(224,123,57,.15);
+      outline: none;
+    }
+    .lp-input-wrap input.form-control::placeholder { color: #aab; }
+
+    /* ---- Botón ingresar ---- */
+    .lp-btn {
+      display: block;
+      width: 100%;
+      height: 56px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #e07b39 0%, #f4a35a 100%);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: transform .18s, box-shadow .18s, background .25s;
+      box-shadow: 0 6px 20px rgba(224,123,57,.4);
+    }
+    .lp-btn:hover {
+      background: linear-gradient(90deg, #c85e1e 0%, #e07b39 100%);
+      box-shadow: 0 8px 24px rgba(200,94,30,.45);
+      transform: translateY(-2px);
+    }
+    .lp-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 10px rgba(224,123,57,.3);
+    }
+    .lp-btn i { margin-right: 8px; }
+
+    /* ---- Pie de tarjeta ---- */
+    .lp-footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 1.0rem;
+      color: #c09070;
+      letter-spacing: .03em;
+    }
+
+    /* ---- Responsivo ---- */
+    @media (max-width: 480px) {
+      .lp-card { border-radius: 0; min-height: 100vh; }
+      .lp-header, .lp-body { padding-left: 28px; padding-right: 28px; }
+    }
+  </style>
+</head>
+<body class="hold-transition login-page">
+
+  <div class="lp-card">
+
+    <!-- Cabecera -->
+    <div class="lp-header">
+      <img src="../assets/img/logo.jpg" alt="Logo">
+      <h2>Sistema de Ventas</h2>
+      <p>Ingrese sus credenciales para continuar</p>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="lp-body">
+      <form method="post" id="frmAcceso" onsubmit="return false;">
+
+        <div class="lp-input-group">
+          <label for="logina"><i class="fa fa-user"></i>&nbsp; Usuario</label>
+          <div class="lp-input-wrap">
+            <i class="fa fa-user lp-icon"></i>
+            <input type="text" id="logina" name="logina" class="form-control" placeholder="Ingrese su usuario" required>
+          </div>
+        </div>
+
+        <div class="lp-input-group">
+          <label for="clavea"><i class="fa fa-lock"></i>&nbsp; Contraseña</label>
+          <div class="lp-input-wrap">
+            <i class="fa fa-lock lp-icon"></i>
+            <input type="password" id="clavea" name="clavea" class="form-control" placeholder="Ingrese su contraseña" required>
+          </div>
+        </div>
+
+        <button type="submit" class="lp-btn">
+          <i class="fa fa-sign-in"></i> Ingresar
+        </button>
+
+      </form>
+
+      <div class="lp-footer">
+        &copy; 2026 &mdash; Sistema de Ventas
+      </div>
+    </div>
+    <!-- /.lp-body -->
+
+  </div>
+  <!-- /.lp-card -->
+
+<!-- jQuery 3 -->
+<script src="../public/js/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../public/js/bootstrap.min.js"></script>
+<script src="../public/js/bootbox.min.js"></script>
+<script src="scripts/login.js"></script>
+
+</body>
+</html>
